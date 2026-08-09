@@ -5,7 +5,6 @@ import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule);
-
   app.enableShutdownHooks();
 
   app.setGlobalPrefix('api');
@@ -26,6 +25,7 @@ async function bootstrap(): Promise<void> {
       'API responsável pelo gerenciamento de tarefas do TaskPlan.',
     )
     .setVersion('1.0')
+    .addBearerAuth()
     .build();
 
   const swaggerDocument = () =>
