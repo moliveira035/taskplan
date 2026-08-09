@@ -4,3 +4,8 @@ export interface JwtPayload {
   roleId: string;
   role: string;
 }
+
+export interface RefreshJwtPayload {
+  sub: string;
+  sid: string;
+}

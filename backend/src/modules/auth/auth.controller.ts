@@ -6,6 +6,8 @@ import {
   ApiTags,
   ApiUnauthorizedResponse,
 } from '@nestjs/swagger';
+import { HttpCode, HttpStatus } from '@nestjs/common';
+import { RefreshTokenDto } from './dto/refresh-token.dto';
 import { AuthService } from './auth.service';
 import { LoginDto } from './dto/login.dto';
 import { JwtAuthGuard } from './guards/jwt-auth.guard';
@@ -27,7 +29,28 @@ export class AuthController {
   login(@Body() dto: LoginDto) {
     return this.authService.login(dto);
   }
+  @Post('refresh')
+  @ApiOperation({
+    summary: 'Renovar tokens da sessão',
+  })
+  @ApiOkResponse({
+    description: 'Tokens renovados com sucesso.',
+  })
+  @ApiUnauthorizedResponse({
+    description: 'Refresh token inválido ou expirado.',
+  })
+  refresh(@Body() dto: RefreshTokenDto) {
+    return this.authService.refresh(dto.refreshToken);
+  }
 
+  @Post('logout')
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @ApiOperation({
+    summary: 'Encerrar sessão',
+  })
+  logout(@Body() dto: RefreshTokenDto) {
+    return this.authService.logout(dto.refreshToken);
+  }
   @Get('me')
   @UseGuards(JwtAuthGuard)
   @ApiBearerAuth()
