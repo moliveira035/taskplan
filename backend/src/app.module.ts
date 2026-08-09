@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './database/prisma/prisma.module';
 import { HealthModule } from './modules/health/health.module';
-
+import { RolesModule } from './modules/roles/roles.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -13,6 +13,7 @@ import { HealthModule } from './modules/health/health.module';
     }),
     PrismaModule,
     HealthModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
