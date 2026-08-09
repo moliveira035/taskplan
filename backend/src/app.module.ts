@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { PrismaModule } from './database/prisma/prisma.module';
 import { HealthModule } from './modules/health/health.module';
 import { RolesModule } from './modules/roles/roles.module';
+import { PositionsModule } from './modules/positions/positions.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -14,6 +15,7 @@ import { RolesModule } from './modules/roles/roles.module';
     PrismaModule,
     HealthModule,
     RolesModule,
+    PositionsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
