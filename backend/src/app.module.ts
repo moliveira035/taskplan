@@ -6,6 +6,7 @@ import { PrismaModule } from './database/prisma/prisma.module';
 import { HealthModule } from './modules/health/health.module';
 import { RolesModule } from './modules/roles/roles.module';
 import { PositionsModule } from './modules/positions/positions.module';
+import { UsersModule } from './modules/users/users.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -16,6 +17,7 @@ import { PositionsModule } from './modules/positions/positions.module';
     HealthModule,
     RolesModule,
     PositionsModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
