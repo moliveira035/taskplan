@@ -9,6 +9,11 @@ import { PositionsModule } from './modules/positions/positions.module';
 import { UsersModule } from './modules/users/users.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { RedisModule } from './database/redis/redis.module';
+import { FunctionsModule } from './modules/functions/functions.module';
+import { PeriodicitiesModule } from './modules/periodicities/periodicities.module';
+import { HolidaysModule } from './modules/holidays/holidays.module';
+import { TasksModule } from './modules/tasks/tasks.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -22,6 +27,10 @@ import { RedisModule } from './database/redis/redis.module';
     UsersModule,
     AuthModule,
     RedisModule,
+    FunctionsModule,
+    PeriodicitiesModule,
+    HolidaysModule,
+    TasksModule,
   ],
   controllers: [AppController],
   providers: [AppService],
