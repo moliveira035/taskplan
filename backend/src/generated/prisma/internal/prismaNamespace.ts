@@ -79,11 +79,11 @@ export type PrismaVersion = {
 }
 
 /**
- * Prisma Client JS version: 7.9.0
+ * Prisma Client JS version: 7.9.1
  * Query Engine version: e922089b7d7502aff4249d5da3420f6fa55fc6ad
  */
 export const prismaVersion: PrismaVersion = {
-  client: "7.9.0",
+  client: "7.9.1",
   engine: "e922089b7d7502aff4249d5da3420f6fa55fc6ad"
 }
 
@@ -398,7 +398,12 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 export const ModelName = {
   Role: 'Role',
   Position: 'Position',
-  User: 'User'
+  User: 'User',
+  TaskFunction: 'TaskFunction',
+  Periodicity: 'Periodicity',
+  Holiday: 'Holiday',
+  Task: 'Task',
+  TaskOccurrence: 'TaskOccurrence'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -414,7 +419,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "role" | "position" | "user"
+    modelProps: "role" | "position" | "user" | "taskFunction" | "periodicity" | "holiday" | "task" | "taskOccurrence"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -640,6 +645,376 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    TaskFunction: {
+      payload: Prisma.$TaskFunctionPayload<ExtArgs>
+      fields: Prisma.TaskFunctionFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TaskFunctionFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TaskFunctionFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>
+        }
+        findFirst: {
+          args: Prisma.TaskFunctionFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TaskFunctionFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>
+        }
+        findMany: {
+          args: Prisma.TaskFunctionFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>[]
+        }
+        create: {
+          args: Prisma.TaskFunctionCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>
+        }
+        createMany: {
+          args: Prisma.TaskFunctionCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TaskFunctionCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>[]
+        }
+        delete: {
+          args: Prisma.TaskFunctionDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>
+        }
+        update: {
+          args: Prisma.TaskFunctionUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>
+        }
+        deleteMany: {
+          args: Prisma.TaskFunctionDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TaskFunctionUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TaskFunctionUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>[]
+        }
+        upsert: {
+          args: Prisma.TaskFunctionUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskFunctionPayload>
+        }
+        aggregate: {
+          args: Prisma.TaskFunctionAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTaskFunction>
+        }
+        groupBy: {
+          args: Prisma.TaskFunctionGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TaskFunctionGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TaskFunctionCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TaskFunctionCountAggregateOutputType> | number
+        }
+      }
+    }
+    Periodicity: {
+      payload: Prisma.$PeriodicityPayload<ExtArgs>
+      fields: Prisma.PeriodicityFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PeriodicityFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PeriodicityFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>
+        }
+        findFirst: {
+          args: Prisma.PeriodicityFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PeriodicityFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>
+        }
+        findMany: {
+          args: Prisma.PeriodicityFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>[]
+        }
+        create: {
+          args: Prisma.PeriodicityCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>
+        }
+        createMany: {
+          args: Prisma.PeriodicityCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PeriodicityCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>[]
+        }
+        delete: {
+          args: Prisma.PeriodicityDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>
+        }
+        update: {
+          args: Prisma.PeriodicityUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>
+        }
+        deleteMany: {
+          args: Prisma.PeriodicityDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PeriodicityUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PeriodicityUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>[]
+        }
+        upsert: {
+          args: Prisma.PeriodicityUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PeriodicityPayload>
+        }
+        aggregate: {
+          args: Prisma.PeriodicityAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePeriodicity>
+        }
+        groupBy: {
+          args: Prisma.PeriodicityGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PeriodicityGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PeriodicityCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PeriodicityCountAggregateOutputType> | number
+        }
+      }
+    }
+    Holiday: {
+      payload: Prisma.$HolidayPayload<ExtArgs>
+      fields: Prisma.HolidayFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.HolidayFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.HolidayFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>
+        }
+        findFirst: {
+          args: Prisma.HolidayFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.HolidayFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>
+        }
+        findMany: {
+          args: Prisma.HolidayFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>[]
+        }
+        create: {
+          args: Prisma.HolidayCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>
+        }
+        createMany: {
+          args: Prisma.HolidayCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.HolidayCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>[]
+        }
+        delete: {
+          args: Prisma.HolidayDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>
+        }
+        update: {
+          args: Prisma.HolidayUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>
+        }
+        deleteMany: {
+          args: Prisma.HolidayDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.HolidayUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.HolidayUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>[]
+        }
+        upsert: {
+          args: Prisma.HolidayUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$HolidayPayload>
+        }
+        aggregate: {
+          args: Prisma.HolidayAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateHoliday>
+        }
+        groupBy: {
+          args: Prisma.HolidayGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.HolidayGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.HolidayCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.HolidayCountAggregateOutputType> | number
+        }
+      }
+    }
+    Task: {
+      payload: Prisma.$TaskPayload<ExtArgs>
+      fields: Prisma.TaskFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TaskFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TaskFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>
+        }
+        findFirst: {
+          args: Prisma.TaskFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TaskFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>
+        }
+        findMany: {
+          args: Prisma.TaskFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>[]
+        }
+        create: {
+          args: Prisma.TaskCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>
+        }
+        createMany: {
+          args: Prisma.TaskCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TaskCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>[]
+        }
+        delete: {
+          args: Prisma.TaskDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>
+        }
+        update: {
+          args: Prisma.TaskUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>
+        }
+        deleteMany: {
+          args: Prisma.TaskDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TaskUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TaskUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>[]
+        }
+        upsert: {
+          args: Prisma.TaskUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskPayload>
+        }
+        aggregate: {
+          args: Prisma.TaskAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTask>
+        }
+        groupBy: {
+          args: Prisma.TaskGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TaskGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TaskCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TaskCountAggregateOutputType> | number
+        }
+      }
+    }
+    TaskOccurrence: {
+      payload: Prisma.$TaskOccurrencePayload<ExtArgs>
+      fields: Prisma.TaskOccurrenceFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.TaskOccurrenceFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.TaskOccurrenceFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>
+        }
+        findFirst: {
+          args: Prisma.TaskOccurrenceFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.TaskOccurrenceFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>
+        }
+        findMany: {
+          args: Prisma.TaskOccurrenceFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>[]
+        }
+        create: {
+          args: Prisma.TaskOccurrenceCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>
+        }
+        createMany: {
+          args: Prisma.TaskOccurrenceCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.TaskOccurrenceCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>[]
+        }
+        delete: {
+          args: Prisma.TaskOccurrenceDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>
+        }
+        update: {
+          args: Prisma.TaskOccurrenceUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>
+        }
+        deleteMany: {
+          args: Prisma.TaskOccurrenceDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.TaskOccurrenceUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.TaskOccurrenceUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>[]
+        }
+        upsert: {
+          args: Prisma.TaskOccurrenceUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$TaskOccurrencePayload>
+        }
+        aggregate: {
+          args: Prisma.TaskOccurrenceAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateTaskOccurrence>
+        }
+        groupBy: {
+          args: Prisma.TaskOccurrenceGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TaskOccurrenceGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.TaskOccurrenceCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.TaskOccurrenceCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -719,6 +1094,95 @@ export const UserScalarFieldEnum = {
 export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
 
 
+export const TaskFunctionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  active: 'active',
+  responsiblePositionId: 'responsiblePositionId',
+  responsibleUserId: 'responsibleUserId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TaskFunctionScalarFieldEnum = (typeof TaskFunctionScalarFieldEnum)[keyof typeof TaskFunctionScalarFieldEnum]
+
+
+export const PeriodicityScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  type: 'type',
+  interval: 'interval',
+  daysOfWeek: 'daysOfWeek',
+  dayOfMonth: 'dayOfMonth',
+  month: 'month',
+  nonexistentDayRule: 'nonexistentDayRule',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type PeriodicityScalarFieldEnum = (typeof PeriodicityScalarFieldEnum)[keyof typeof PeriodicityScalarFieldEnum]
+
+
+export const HolidayScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  date: 'date',
+  type: 'type',
+  locality: 'locality',
+  recurringAnnual: 'recurringAnnual',
+  active: 'active',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type HolidayScalarFieldEnum = (typeof HolidayScalarFieldEnum)[keyof typeof HolidayScalarFieldEnum]
+
+
+export const TaskScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  functionId: 'functionId',
+  periodicityId: 'periodicityId',
+  responsiblePositionId: 'responsiblePositionId',
+  responsibleUserId: 'responsibleUserId',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  scheduledTime: 'scheduledTime',
+  estimatedDurationMinutes: 'estimatedDurationMinutes',
+  mandatory: 'mandatory',
+  active: 'active',
+  displayOrder: 'displayOrder',
+  advanceOnNonBusinessDay: 'advanceOnNonBusinessDay',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
+
+
+export const TaskOccurrenceScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  responsibleUserId: 'responsibleUserId',
+  originalDate: 'originalDate',
+  scheduledDate: 'scheduledDate',
+  scheduledTime: 'scheduledTime',
+  status: 'status',
+  result: 'result',
+  startedAt: 'startedAt',
+  completedAt: 'completedAt',
+  actualDurationMinutes: 'actualDurationMinutes',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type TaskOccurrenceScalarFieldEnum = (typeof TaskOccurrenceScalarFieldEnum)[keyof typeof TaskOccurrenceScalarFieldEnum]
+
+
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -785,6 +1249,20 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
+ * Reference to a field of type 'PeriodicityType'
+ */
+export type EnumPeriodicityTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PeriodicityType'>
+    
+
+
+/**
+ * Reference to a field of type 'PeriodicityType[]'
+ */
+export type ListEnumPeriodicityTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'PeriodicityType[]'>
+    
+
+
+/**
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -795,6 +1273,76 @@ export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'In
  * Reference to a field of type 'Int[]'
  */
 export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int[]'>
+    
+
+
+/**
+ * Reference to a field of type 'NonexistentDayRule'
+ */
+export type EnumNonexistentDayRuleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'NonexistentDayRule'>
+    
+
+
+/**
+ * Reference to a field of type 'NonexistentDayRule[]'
+ */
+export type ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'NonexistentDayRule[]'>
+    
+
+
+/**
+ * Reference to a field of type 'HolidayType'
+ */
+export type EnumHolidayTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HolidayType'>
+    
+
+
+/**
+ * Reference to a field of type 'HolidayType[]'
+ */
+export type ListEnumHolidayTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'HolidayType[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TaskOccurrenceStatus'
+ */
+export type EnumTaskOccurrenceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TaskOccurrenceStatus'>
+    
+
+
+/**
+ * Reference to a field of type 'TaskOccurrenceStatus[]'
+ */
+export type ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TaskOccurrenceStatus[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TaskOccurrenceResult'
+ */
+export type EnumTaskOccurrenceResultFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TaskOccurrenceResult'>
+    
+
+
+/**
+ * Reference to a field of type 'TaskOccurrenceResult[]'
+ */
+export type ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TaskOccurrenceResult[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Float'
+ */
+export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
+    
+
+
+/**
+ * Reference to a field of type 'Float[]'
+ */
+export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
     
 
 /**
@@ -951,6 +1499,11 @@ export type GlobalOmitConfig = {
   role?: Prisma.RoleOmit
   position?: Prisma.PositionOmit
   user?: Prisma.UserOmit
+  taskFunction?: Prisma.TaskFunctionOmit
+  periodicity?: Prisma.PeriodicityOmit
+  holiday?: Prisma.HolidayOmit
+  task?: Prisma.TaskOmit
+  taskOccurrence?: Prisma.TaskOccurrenceOmit
 }
 
 /* Types for Logging */

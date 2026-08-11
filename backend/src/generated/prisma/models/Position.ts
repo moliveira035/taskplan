@@ -190,6 +190,8 @@ export type PositionWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Position"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Position"> | Date | string
   users?: Prisma.UserListRelationFilter
+  responsibleFunctions?: Prisma.TaskFunctionListRelationFilter
+  responsibleTasks?: Prisma.TaskListRelationFilter
 }
 
 export type PositionOrderByWithRelationInput = {
@@ -200,6 +202,8 @@ export type PositionOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   users?: Prisma.UserOrderByRelationAggregateInput
+  responsibleFunctions?: Prisma.TaskFunctionOrderByRelationAggregateInput
+  responsibleTasks?: Prisma.TaskOrderByRelationAggregateInput
 }
 
 export type PositionWhereUniqueInput = Prisma.AtLeast<{
@@ -213,6 +217,8 @@ export type PositionWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Position"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Position"> | Date | string
   users?: Prisma.UserListRelationFilter
+  responsibleFunctions?: Prisma.TaskFunctionListRelationFilter
+  responsibleTasks?: Prisma.TaskListRelationFilter
 }, "id" | "name">
 
 export type PositionOrderByWithAggregationInput = {
@@ -247,6 +253,8 @@ export type PositionCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.UserCreateNestedManyWithoutPositionInput
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsiblePositionInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsiblePositionInput
 }
 
 export type PositionUncheckedCreateInput = {
@@ -257,6 +265,8 @@ export type PositionUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   users?: Prisma.UserUncheckedCreateNestedManyWithoutPositionInput
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsiblePositionInput
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsiblePositionInput
 }
 
 export type PositionUpdateInput = {
@@ -267,6 +277,8 @@ export type PositionUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUpdateManyWithoutPositionNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsiblePositionNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsiblePositionNestedInput
 }
 
 export type PositionUncheckedUpdateInput = {
@@ -277,6 +289,8 @@ export type PositionUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   users?: Prisma.UserUncheckedUpdateManyWithoutPositionNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsiblePositionNestedInput
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsiblePositionNestedInput
 }
 
 export type PositionCreateManyInput = {
@@ -354,6 +368,38 @@ export type PositionUpdateOneWithoutUsersNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PositionUpdateToOneWithWhereWithoutUsersInput, Prisma.PositionUpdateWithoutUsersInput>, Prisma.PositionUncheckedUpdateWithoutUsersInput>
 }
 
+export type PositionCreateNestedOneWithoutResponsibleFunctionsInput = {
+  create?: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleFunctionsInput, Prisma.PositionUncheckedCreateWithoutResponsibleFunctionsInput>
+  connectOrCreate?: Prisma.PositionCreateOrConnectWithoutResponsibleFunctionsInput
+  connect?: Prisma.PositionWhereUniqueInput
+}
+
+export type PositionUpdateOneWithoutResponsibleFunctionsNestedInput = {
+  create?: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleFunctionsInput, Prisma.PositionUncheckedCreateWithoutResponsibleFunctionsInput>
+  connectOrCreate?: Prisma.PositionCreateOrConnectWithoutResponsibleFunctionsInput
+  upsert?: Prisma.PositionUpsertWithoutResponsibleFunctionsInput
+  disconnect?: Prisma.PositionWhereInput | boolean
+  delete?: Prisma.PositionWhereInput | boolean
+  connect?: Prisma.PositionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PositionUpdateToOneWithWhereWithoutResponsibleFunctionsInput, Prisma.PositionUpdateWithoutResponsibleFunctionsInput>, Prisma.PositionUncheckedUpdateWithoutResponsibleFunctionsInput>
+}
+
+export type PositionCreateNestedOneWithoutResponsibleTasksInput = {
+  create?: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleTasksInput, Prisma.PositionUncheckedCreateWithoutResponsibleTasksInput>
+  connectOrCreate?: Prisma.PositionCreateOrConnectWithoutResponsibleTasksInput
+  connect?: Prisma.PositionWhereUniqueInput
+}
+
+export type PositionUpdateOneWithoutResponsibleTasksNestedInput = {
+  create?: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleTasksInput, Prisma.PositionUncheckedCreateWithoutResponsibleTasksInput>
+  connectOrCreate?: Prisma.PositionCreateOrConnectWithoutResponsibleTasksInput
+  upsert?: Prisma.PositionUpsertWithoutResponsibleTasksInput
+  disconnect?: Prisma.PositionWhereInput | boolean
+  delete?: Prisma.PositionWhereInput | boolean
+  connect?: Prisma.PositionWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.PositionUpdateToOneWithWhereWithoutResponsibleTasksInput, Prisma.PositionUpdateWithoutResponsibleTasksInput>, Prisma.PositionUncheckedUpdateWithoutResponsibleTasksInput>
+}
+
 export type PositionCreateWithoutUsersInput = {
   id?: string
   name: string
@@ -361,6 +407,8 @@ export type PositionCreateWithoutUsersInput = {
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsiblePositionInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsiblePositionInput
 }
 
 export type PositionUncheckedCreateWithoutUsersInput = {
@@ -370,6 +418,8 @@ export type PositionUncheckedCreateWithoutUsersInput = {
   active?: boolean
   createdAt?: Date | string
   updatedAt?: Date | string
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsiblePositionInput
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsiblePositionInput
 }
 
 export type PositionCreateOrConnectWithoutUsersInput = {
@@ -395,6 +445,8 @@ export type PositionUpdateWithoutUsersInput = {
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsiblePositionNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsiblePositionNestedInput
 }
 
 export type PositionUncheckedUpdateWithoutUsersInput = {
@@ -404,6 +456,128 @@ export type PositionUncheckedUpdateWithoutUsersInput = {
   active?: Prisma.BoolFieldUpdateOperationsInput | boolean
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsiblePositionNestedInput
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsiblePositionNestedInput
+}
+
+export type PositionCreateWithoutResponsibleFunctionsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserCreateNestedManyWithoutPositionInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsiblePositionInput
+}
+
+export type PositionUncheckedCreateWithoutResponsibleFunctionsInput = {
+  id?: string
+  name: string
+  description?: string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutPositionInput
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsiblePositionInput
+}
+
+export type PositionCreateOrConnectWithoutResponsibleFunctionsInput = {
+  where: Prisma.PositionWhereUniqueInput
+  create: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleFunctionsInput, Prisma.PositionUncheckedCreateWithoutResponsibleFunctionsInput>
+}
+
+export type PositionUpsertWithoutResponsibleFunctionsInput = {
+  update: Prisma.XOR<Prisma.PositionUpdateWithoutResponsibleFunctionsInput, Prisma.PositionUncheckedUpdateWithoutResponsibleFunctionsInput>
+  create: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleFunctionsInput, Prisma.PositionUncheckedCreateWithoutResponsibleFunctionsInput>
+  where?: Prisma.PositionWhereInput
+}
+
+export type PositionUpdateToOneWithWhereWithoutResponsibleFunctionsInput = {
+  where?: Prisma.PositionWhereInput
+  data: Prisma.XOR<Prisma.PositionUpdateWithoutResponsibleFunctionsInput, Prisma.PositionUncheckedUpdateWithoutResponsibleFunctionsInput>
+}
+
+export type PositionUpdateWithoutResponsibleFunctionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUpdateManyWithoutPositionNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsiblePositionNestedInput
+}
+
+export type PositionUncheckedUpdateWithoutResponsibleFunctionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUncheckedUpdateManyWithoutPositionNestedInput
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsiblePositionNestedInput
+}
+
+export type PositionCreateWithoutResponsibleTasksInput = {
+  id?: string
+  name: string
+  description?: string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserCreateNestedManyWithoutPositionInput
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsiblePositionInput
+}
+
+export type PositionUncheckedCreateWithoutResponsibleTasksInput = {
+  id?: string
+  name: string
+  description?: string | null
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  users?: Prisma.UserUncheckedCreateNestedManyWithoutPositionInput
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsiblePositionInput
+}
+
+export type PositionCreateOrConnectWithoutResponsibleTasksInput = {
+  where: Prisma.PositionWhereUniqueInput
+  create: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleTasksInput, Prisma.PositionUncheckedCreateWithoutResponsibleTasksInput>
+}
+
+export type PositionUpsertWithoutResponsibleTasksInput = {
+  update: Prisma.XOR<Prisma.PositionUpdateWithoutResponsibleTasksInput, Prisma.PositionUncheckedUpdateWithoutResponsibleTasksInput>
+  create: Prisma.XOR<Prisma.PositionCreateWithoutResponsibleTasksInput, Prisma.PositionUncheckedCreateWithoutResponsibleTasksInput>
+  where?: Prisma.PositionWhereInput
+}
+
+export type PositionUpdateToOneWithWhereWithoutResponsibleTasksInput = {
+  where?: Prisma.PositionWhereInput
+  data: Prisma.XOR<Prisma.PositionUpdateWithoutResponsibleTasksInput, Prisma.PositionUncheckedUpdateWithoutResponsibleTasksInput>
+}
+
+export type PositionUpdateWithoutResponsibleTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUpdateManyWithoutPositionNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsiblePositionNestedInput
+}
+
+export type PositionUncheckedUpdateWithoutResponsibleTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  description?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  users?: Prisma.UserUncheckedUpdateManyWithoutPositionNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsiblePositionNestedInput
 }
 
 
@@ -413,10 +587,14 @@ export type PositionUncheckedUpdateWithoutUsersInput = {
 
 export type PositionCountOutputType = {
   users: number
+  responsibleFunctions: number
+  responsibleTasks: number
 }
 
 export type PositionCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | PositionCountOutputTypeCountUsersArgs
+  responsibleFunctions?: boolean | PositionCountOutputTypeCountResponsibleFunctionsArgs
+  responsibleTasks?: boolean | PositionCountOutputTypeCountResponsibleTasksArgs
 }
 
 /**
@@ -436,6 +614,20 @@ export type PositionCountOutputTypeCountUsersArgs<ExtArgs extends runtime.Types.
   where?: Prisma.UserWhereInput
 }
 
+/**
+ * PositionCountOutputType without action
+ */
+export type PositionCountOutputTypeCountResponsibleFunctionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TaskFunctionWhereInput
+}
+
+/**
+ * PositionCountOutputType without action
+ */
+export type PositionCountOutputTypeCountResponsibleTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TaskWhereInput
+}
+
 
 export type PositionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -445,6 +637,8 @@ export type PositionSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs
   createdAt?: boolean
   updatedAt?: boolean
   users?: boolean | Prisma.Position$usersArgs<ExtArgs>
+  responsibleFunctions?: boolean | Prisma.Position$responsibleFunctionsArgs<ExtArgs>
+  responsibleTasks?: boolean | Prisma.Position$responsibleTasksArgs<ExtArgs>
   _count?: boolean | Prisma.PositionCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["position"]>
 
@@ -478,6 +672,8 @@ export type PositionSelectScalar = {
 export type PositionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "description" | "active" | "createdAt" | "updatedAt", ExtArgs["result"]["position"]>
 export type PositionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   users?: boolean | Prisma.Position$usersArgs<ExtArgs>
+  responsibleFunctions?: boolean | Prisma.Position$responsibleFunctionsArgs<ExtArgs>
+  responsibleTasks?: boolean | Prisma.Position$responsibleTasksArgs<ExtArgs>
   _count?: boolean | Prisma.PositionCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type PositionIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
@@ -487,6 +683,8 @@ export type $PositionPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   name: "Position"
   objects: {
     users: Prisma.$UserPayload<ExtArgs>[]
+    responsibleFunctions: Prisma.$TaskFunctionPayload<ExtArgs>[]
+    responsibleTasks: Prisma.$TaskPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -890,6 +1088,8 @@ readonly fields: PositionFieldRefs;
 export interface Prisma__PositionClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   users<T extends Prisma.Position$usersArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Position$usersArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  responsibleFunctions<T extends Prisma.Position$responsibleFunctionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Position$responsibleFunctionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskFunctionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  responsibleTasks<T extends Prisma.Position$responsibleTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Position$responsibleTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1339,6 +1539,54 @@ export type Position$usersArgs<ExtArgs extends runtime.Types.Extensions.Internal
   take?: number
   skip?: number
   distinct?: Prisma.UserScalarFieldEnum | Prisma.UserScalarFieldEnum[]
+}
+
+/**
+ * Position.responsibleFunctions
+ */
+export type Position$responsibleFunctionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TaskFunction
+   */
+  select?: Prisma.TaskFunctionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TaskFunction
+   */
+  omit?: Prisma.TaskFunctionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TaskFunctionInclude<ExtArgs> | null
+  where?: Prisma.TaskFunctionWhereInput
+  orderBy?: Prisma.TaskFunctionOrderByWithRelationInput | Prisma.TaskFunctionOrderByWithRelationInput[]
+  cursor?: Prisma.TaskFunctionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TaskFunctionScalarFieldEnum | Prisma.TaskFunctionScalarFieldEnum[]
+}
+
+/**
+ * Position.responsibleTasks
+ */
+export type Position$responsibleTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Task
+   */
+  select?: Prisma.TaskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Task
+   */
+  omit?: Prisma.TaskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TaskInclude<ExtArgs> | null
+  where?: Prisma.TaskWhereInput
+  orderBy?: Prisma.TaskOrderByWithRelationInput | Prisma.TaskOrderByWithRelationInput[]
+  cursor?: Prisma.TaskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TaskScalarFieldEnum | Prisma.TaskScalarFieldEnum[]
 }
 
 /**

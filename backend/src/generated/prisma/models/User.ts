@@ -223,6 +223,9 @@ export type UserWhereInput = {
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
   position?: Prisma.XOR<Prisma.PositionNullableScalarRelationFilter, Prisma.PositionWhereInput> | null
+  responsibleFunctions?: Prisma.TaskFunctionListRelationFilter
+  responsibleTasks?: Prisma.TaskListRelationFilter
+  taskOccurrences?: Prisma.TaskOccurrenceListRelationFilter
 }
 
 export type UserOrderByWithRelationInput = {
@@ -238,6 +241,9 @@ export type UserOrderByWithRelationInput = {
   deletedAt?: Prisma.SortOrderInput | Prisma.SortOrder
   role?: Prisma.RoleOrderByWithRelationInput
   position?: Prisma.PositionOrderByWithRelationInput
+  responsibleFunctions?: Prisma.TaskFunctionOrderByRelationAggregateInput
+  responsibleTasks?: Prisma.TaskOrderByRelationAggregateInput
+  taskOccurrences?: Prisma.TaskOccurrenceOrderByRelationAggregateInput
 }
 
 export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -256,6 +262,9 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   deletedAt?: Prisma.DateTimeNullableFilter<"User"> | Date | string | null
   role?: Prisma.XOR<Prisma.RoleScalarRelationFilter, Prisma.RoleWhereInput>
   position?: Prisma.XOR<Prisma.PositionNullableScalarRelationFilter, Prisma.PositionWhereInput> | null
+  responsibleFunctions?: Prisma.TaskFunctionListRelationFilter
+  responsibleTasks?: Prisma.TaskListRelationFilter
+  taskOccurrences?: Prisma.TaskOccurrenceListRelationFilter
 }, "id" | "email">
 
 export type UserOrderByWithAggregationInput = {
@@ -301,6 +310,9 @@ export type UserCreateInput = {
   deletedAt?: Date | string | null
   role: Prisma.RoleCreateNestedOneWithoutUsersInput
   position?: Prisma.PositionCreateNestedOneWithoutUsersInput
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceCreateNestedManyWithoutResponsibleUserInput
 }
 
 export type UserUncheckedCreateInput = {
@@ -314,6 +326,9 @@ export type UserUncheckedCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedCreateNestedManyWithoutResponsibleUserInput
 }
 
 export type UserUpdateInput = {
@@ -327,6 +342,9 @@ export type UserUpdateInput = {
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
   position?: Prisma.PositionUpdateOneWithoutUsersNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUpdateManyWithoutResponsibleUserNestedInput
 }
 
 export type UserUncheckedUpdateInput = {
@@ -340,6 +358,9 @@ export type UserUncheckedUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedUpdateManyWithoutResponsibleUserNestedInput
 }
 
 export type UserCreateManyInput = {
@@ -426,6 +447,11 @@ export type UserMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   deletedAt?: Prisma.SortOrder
+}
+
+export type UserNullableScalarRelationFilter = {
+  is?: Prisma.UserWhereInput | null
+  isNot?: Prisma.UserWhereInput | null
 }
 
 export type UserCreateNestedManyWithoutRoleInput = {
@@ -516,6 +542,54 @@ export type NullableDateTimeFieldUpdateOperationsInput = {
   set?: Date | string | null
 }
 
+export type UserCreateNestedOneWithoutResponsibleFunctionsInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResponsibleFunctionsInput, Prisma.UserUncheckedCreateWithoutResponsibleFunctionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResponsibleFunctionsInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutResponsibleFunctionsNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResponsibleFunctionsInput, Prisma.UserUncheckedCreateWithoutResponsibleFunctionsInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResponsibleFunctionsInput
+  upsert?: Prisma.UserUpsertWithoutResponsibleFunctionsInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResponsibleFunctionsInput, Prisma.UserUpdateWithoutResponsibleFunctionsInput>, Prisma.UserUncheckedUpdateWithoutResponsibleFunctionsInput>
+}
+
+export type UserCreateNestedOneWithoutResponsibleTasksInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResponsibleTasksInput, Prisma.UserUncheckedCreateWithoutResponsibleTasksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResponsibleTasksInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutResponsibleTasksNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutResponsibleTasksInput, Prisma.UserUncheckedCreateWithoutResponsibleTasksInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutResponsibleTasksInput
+  upsert?: Prisma.UserUpsertWithoutResponsibleTasksInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutResponsibleTasksInput, Prisma.UserUpdateWithoutResponsibleTasksInput>, Prisma.UserUncheckedUpdateWithoutResponsibleTasksInput>
+}
+
+export type UserCreateNestedOneWithoutTaskOccurrencesInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTaskOccurrencesInput, Prisma.UserUncheckedCreateWithoutTaskOccurrencesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTaskOccurrencesInput
+  connect?: Prisma.UserWhereUniqueInput
+}
+
+export type UserUpdateOneWithoutTaskOccurrencesNestedInput = {
+  create?: Prisma.XOR<Prisma.UserCreateWithoutTaskOccurrencesInput, Prisma.UserUncheckedCreateWithoutTaskOccurrencesInput>
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTaskOccurrencesInput
+  upsert?: Prisma.UserUpsertWithoutTaskOccurrencesInput
+  disconnect?: Prisma.UserWhereInput | boolean
+  delete?: Prisma.UserWhereInput | boolean
+  connect?: Prisma.UserWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.UserUpdateToOneWithWhereWithoutTaskOccurrencesInput, Prisma.UserUpdateWithoutTaskOccurrencesInput>, Prisma.UserUncheckedUpdateWithoutTaskOccurrencesInput>
+}
+
 export type UserCreateWithoutRoleInput = {
   id?: string
   name: string
@@ -526,6 +600,9 @@ export type UserCreateWithoutRoleInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   position?: Prisma.PositionCreateNestedOneWithoutUsersInput
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceCreateNestedManyWithoutResponsibleUserInput
 }
 
 export type UserUncheckedCreateWithoutRoleInput = {
@@ -538,6 +615,9 @@ export type UserUncheckedCreateWithoutRoleInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedCreateNestedManyWithoutResponsibleUserInput
 }
 
 export type UserCreateOrConnectWithoutRoleInput = {
@@ -592,6 +672,9 @@ export type UserCreateWithoutPositionInput = {
   updatedAt?: Date | string
   deletedAt?: Date | string | null
   role: Prisma.RoleCreateNestedOneWithoutUsersInput
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceCreateNestedManyWithoutResponsibleUserInput
 }
 
 export type UserUncheckedCreateWithoutPositionInput = {
@@ -604,6 +687,9 @@ export type UserUncheckedCreateWithoutPositionInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   deletedAt?: Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedCreateNestedManyWithoutResponsibleUserInput
 }
 
 export type UserCreateOrConnectWithoutPositionInput = {
@@ -632,6 +718,234 @@ export type UserUpdateManyWithWhereWithoutPositionInput = {
   data: Prisma.XOR<Prisma.UserUpdateManyMutationInput, Prisma.UserUncheckedUpdateManyWithoutPositionInput>
 }
 
+export type UserCreateWithoutResponsibleFunctionsInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash: string
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  role: Prisma.RoleCreateNestedOneWithoutUsersInput
+  position?: Prisma.PositionCreateNestedOneWithoutUsersInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceCreateNestedManyWithoutResponsibleUserInput
+}
+
+export type UserUncheckedCreateWithoutResponsibleFunctionsInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash: string
+  active?: boolean
+  roleId: string
+  positionId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedCreateNestedManyWithoutResponsibleUserInput
+}
+
+export type UserCreateOrConnectWithoutResponsibleFunctionsInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResponsibleFunctionsInput, Prisma.UserUncheckedCreateWithoutResponsibleFunctionsInput>
+}
+
+export type UserUpsertWithoutResponsibleFunctionsInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResponsibleFunctionsInput, Prisma.UserUncheckedUpdateWithoutResponsibleFunctionsInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResponsibleFunctionsInput, Prisma.UserUncheckedCreateWithoutResponsibleFunctionsInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResponsibleFunctionsInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResponsibleFunctionsInput, Prisma.UserUncheckedUpdateWithoutResponsibleFunctionsInput>
+}
+
+export type UserUpdateWithoutResponsibleFunctionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
+  position?: Prisma.PositionUpdateOneWithoutUsersNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUpdateManyWithoutResponsibleUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResponsibleFunctionsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  roleId?: Prisma.StringFieldUpdateOperationsInput | string
+  positionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedUpdateManyWithoutResponsibleUserNestedInput
+}
+
+export type UserCreateWithoutResponsibleTasksInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash: string
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  role: Prisma.RoleCreateNestedOneWithoutUsersInput
+  position?: Prisma.PositionCreateNestedOneWithoutUsersInput
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceCreateNestedManyWithoutResponsibleUserInput
+}
+
+export type UserUncheckedCreateWithoutResponsibleTasksInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash: string
+  active?: boolean
+  roleId: string
+  positionId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsibleUserInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedCreateNestedManyWithoutResponsibleUserInput
+}
+
+export type UserCreateOrConnectWithoutResponsibleTasksInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutResponsibleTasksInput, Prisma.UserUncheckedCreateWithoutResponsibleTasksInput>
+}
+
+export type UserUpsertWithoutResponsibleTasksInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutResponsibleTasksInput, Prisma.UserUncheckedUpdateWithoutResponsibleTasksInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutResponsibleTasksInput, Prisma.UserUncheckedCreateWithoutResponsibleTasksInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutResponsibleTasksInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutResponsibleTasksInput, Prisma.UserUncheckedUpdateWithoutResponsibleTasksInput>
+}
+
+export type UserUpdateWithoutResponsibleTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
+  position?: Prisma.PositionUpdateOneWithoutUsersNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUpdateManyWithoutResponsibleUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutResponsibleTasksInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  roleId?: Prisma.StringFieldUpdateOperationsInput | string
+  positionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedUpdateManyWithoutResponsibleUserNestedInput
+}
+
+export type UserCreateWithoutTaskOccurrencesInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash: string
+  active?: boolean
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  role: Prisma.RoleCreateNestedOneWithoutUsersInput
+  position?: Prisma.PositionCreateNestedOneWithoutUsersInput
+  responsibleFunctions?: Prisma.TaskFunctionCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskCreateNestedManyWithoutResponsibleUserInput
+}
+
+export type UserUncheckedCreateWithoutTaskOccurrencesInput = {
+  id?: string
+  name: string
+  email: string
+  passwordHash: string
+  active?: boolean
+  roleId: string
+  positionId?: string | null
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  deletedAt?: Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedCreateNestedManyWithoutResponsibleUserInput
+  responsibleTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutResponsibleUserInput
+}
+
+export type UserCreateOrConnectWithoutTaskOccurrencesInput = {
+  where: Prisma.UserWhereUniqueInput
+  create: Prisma.XOR<Prisma.UserCreateWithoutTaskOccurrencesInput, Prisma.UserUncheckedCreateWithoutTaskOccurrencesInput>
+}
+
+export type UserUpsertWithoutTaskOccurrencesInput = {
+  update: Prisma.XOR<Prisma.UserUpdateWithoutTaskOccurrencesInput, Prisma.UserUncheckedUpdateWithoutTaskOccurrencesInput>
+  create: Prisma.XOR<Prisma.UserCreateWithoutTaskOccurrencesInput, Prisma.UserUncheckedCreateWithoutTaskOccurrencesInput>
+  where?: Prisma.UserWhereInput
+}
+
+export type UserUpdateToOneWithWhereWithoutTaskOccurrencesInput = {
+  where?: Prisma.UserWhereInput
+  data: Prisma.XOR<Prisma.UserUpdateWithoutTaskOccurrencesInput, Prisma.UserUncheckedUpdateWithoutTaskOccurrencesInput>
+}
+
+export type UserUpdateWithoutTaskOccurrencesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
+  position?: Prisma.PositionUpdateOneWithoutUsersNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsibleUserNestedInput
+}
+
+export type UserUncheckedUpdateWithoutTaskOccurrencesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  email?: Prisma.StringFieldUpdateOperationsInput | string
+  passwordHash?: Prisma.StringFieldUpdateOperationsInput | string
+  active?: Prisma.BoolFieldUpdateOperationsInput | boolean
+  roleId?: Prisma.StringFieldUpdateOperationsInput | string
+  positionId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsibleUserNestedInput
+}
+
 export type UserCreateManyRoleInput = {
   id?: string
   name: string
@@ -654,6 +968,9 @@ export type UserUpdateWithoutRoleInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   position?: Prisma.PositionUpdateOneWithoutUsersNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUpdateManyWithoutResponsibleUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutRoleInput = {
@@ -666,6 +983,9 @@ export type UserUncheckedUpdateWithoutRoleInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedUpdateManyWithoutResponsibleUserNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutRoleInput = {
@@ -702,6 +1022,9 @@ export type UserUpdateWithoutPositionInput = {
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   role?: Prisma.RoleUpdateOneRequiredWithoutUsersNestedInput
+  responsibleFunctions?: Prisma.TaskFunctionUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUpdateManyWithoutResponsibleUserNestedInput
 }
 
 export type UserUncheckedUpdateWithoutPositionInput = {
@@ -714,6 +1037,9 @@ export type UserUncheckedUpdateWithoutPositionInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   deletedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+  responsibleFunctions?: Prisma.TaskFunctionUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  responsibleTasks?: Prisma.TaskUncheckedUpdateManyWithoutResponsibleUserNestedInput
+  taskOccurrences?: Prisma.TaskOccurrenceUncheckedUpdateManyWithoutResponsibleUserNestedInput
 }
 
 export type UserUncheckedUpdateManyWithoutPositionInput = {
@@ -729,6 +1055,53 @@ export type UserUncheckedUpdateManyWithoutPositionInput = {
 }
 
 
+/**
+ * Count Type UserCountOutputType
+ */
+
+export type UserCountOutputType = {
+  responsibleFunctions: number
+  responsibleTasks: number
+  taskOccurrences: number
+}
+
+export type UserCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  responsibleFunctions?: boolean | UserCountOutputTypeCountResponsibleFunctionsArgs
+  responsibleTasks?: boolean | UserCountOutputTypeCountResponsibleTasksArgs
+  taskOccurrences?: boolean | UserCountOutputTypeCountTaskOccurrencesArgs
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the UserCountOutputType
+   */
+  select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResponsibleFunctionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TaskFunctionWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountResponsibleTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TaskWhereInput
+}
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountTaskOccurrencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.TaskOccurrenceWhereInput
+}
+
 
 export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -743,6 +1116,10 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   deletedAt?: boolean
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
   position?: boolean | Prisma.User$positionArgs<ExtArgs>
+  responsibleFunctions?: boolean | Prisma.User$responsibleFunctionsArgs<ExtArgs>
+  responsibleTasks?: boolean | Prisma.User$responsibleTasksArgs<ExtArgs>
+  taskOccurrences?: boolean | Prisma.User$taskOccurrencesArgs<ExtArgs>
+  _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["user"]>
 
 export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -792,6 +1169,10 @@ export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = run
 export type UserInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
   position?: boolean | Prisma.User$positionArgs<ExtArgs>
+  responsibleFunctions?: boolean | Prisma.User$responsibleFunctionsArgs<ExtArgs>
+  responsibleTasks?: boolean | Prisma.User$responsibleTasksArgs<ExtArgs>
+  taskOccurrences?: boolean | Prisma.User$taskOccurrencesArgs<ExtArgs>
+  _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>
 }
 export type UserIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   role?: boolean | Prisma.RoleDefaultArgs<ExtArgs>
@@ -807,6 +1188,9 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
   objects: {
     role: Prisma.$RolePayload<ExtArgs>
     position: Prisma.$PositionPayload<ExtArgs> | null
+    responsibleFunctions: Prisma.$TaskFunctionPayload<ExtArgs>[]
+    responsibleTasks: Prisma.$TaskPayload<ExtArgs>[]
+    taskOccurrences: Prisma.$TaskOccurrencePayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1215,6 +1599,9 @@ export interface Prisma__UserClient<T, Null = never, ExtArgs extends runtime.Typ
   readonly [Symbol.toStringTag]: "PrismaPromise"
   role<T extends Prisma.RoleDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.RoleDefaultArgs<ExtArgs>>): Prisma.Prisma__RoleClient<runtime.Types.Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   position<T extends Prisma.User$positionArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$positionArgs<ExtArgs>>): Prisma.Prisma__PositionClient<runtime.Types.Result.GetResult<Prisma.$PositionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+  responsibleFunctions<T extends Prisma.User$responsibleFunctionsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$responsibleFunctionsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskFunctionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  responsibleTasks<T extends Prisma.User$responsibleTasksArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$responsibleTasksArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  taskOccurrences<T extends Prisma.User$taskOccurrencesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.User$taskOccurrencesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TaskOccurrencePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1671,6 +2058,78 @@ export type User$positionArgs<ExtArgs extends runtime.Types.Extensions.InternalA
    */
   include?: Prisma.PositionInclude<ExtArgs> | null
   where?: Prisma.PositionWhereInput
+}
+
+/**
+ * User.responsibleFunctions
+ */
+export type User$responsibleFunctionsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TaskFunction
+   */
+  select?: Prisma.TaskFunctionSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TaskFunction
+   */
+  omit?: Prisma.TaskFunctionOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TaskFunctionInclude<ExtArgs> | null
+  where?: Prisma.TaskFunctionWhereInput
+  orderBy?: Prisma.TaskFunctionOrderByWithRelationInput | Prisma.TaskFunctionOrderByWithRelationInput[]
+  cursor?: Prisma.TaskFunctionWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TaskFunctionScalarFieldEnum | Prisma.TaskFunctionScalarFieldEnum[]
+}
+
+/**
+ * User.responsibleTasks
+ */
+export type User$responsibleTasksArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Task
+   */
+  select?: Prisma.TaskSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Task
+   */
+  omit?: Prisma.TaskOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TaskInclude<ExtArgs> | null
+  where?: Prisma.TaskWhereInput
+  orderBy?: Prisma.TaskOrderByWithRelationInput | Prisma.TaskOrderByWithRelationInput[]
+  cursor?: Prisma.TaskWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TaskScalarFieldEnum | Prisma.TaskScalarFieldEnum[]
+}
+
+/**
+ * User.taskOccurrences
+ */
+export type User$taskOccurrencesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the TaskOccurrence
+   */
+  select?: Prisma.TaskOccurrenceSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the TaskOccurrence
+   */
+  omit?: Prisma.TaskOccurrenceOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TaskOccurrenceInclude<ExtArgs> | null
+  where?: Prisma.TaskOccurrenceWhereInput
+  orderBy?: Prisma.TaskOccurrenceOrderByWithRelationInput | Prisma.TaskOccurrenceOrderByWithRelationInput[]
+  cursor?: Prisma.TaskOccurrenceWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.TaskOccurrenceScalarFieldEnum | Prisma.TaskOccurrenceScalarFieldEnum[]
 }
 
 /**

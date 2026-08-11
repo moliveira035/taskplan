@@ -53,3 +53,28 @@ export type Position = Prisma.PositionModel
  * 
  */
 export type User = Prisma.UserModel
+/**
+ * Model TaskFunction
+ * 
+ */
+export type TaskFunction = Prisma.TaskFunctionModel
+/**
+ * Model Periodicity
+ * 
+ */
+export type Periodicity = Prisma.PeriodicityModel
+/**
+ * Model Holiday
+ * 
+ */
+export type Holiday = Prisma.HolidayModel
+/**
+ * Model Task
+ * 
+ */
+export type Task = Prisma.TaskModel
+/**
+ * Model TaskOccurrence
+ * 
+ */
+export type TaskOccurrence = Prisma.TaskOccurrenceModel

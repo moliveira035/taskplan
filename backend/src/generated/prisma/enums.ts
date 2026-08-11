@@ -8,7 +8,60 @@
 * 🟢 You can import this file directly.
 */
 
+export const PeriodicityType = {
+  DAILY: 'DAILY',
+  WEEKLY: 'WEEKLY',
+  BIWEEKLY: 'BIWEEKLY',
+  MONTHLY: 'MONTHLY',
+  BIMONTHLY: 'BIMONTHLY',
+  QUARTERLY: 'QUARTERLY',
+  SEMIANNUAL: 'SEMIANNUAL',
+  ANNUAL: 'ANNUAL',
+  SPECIFIC_WEEKDAYS: 'SPECIFIC_WEEKDAYS',
+  SPECIFIC_MONTH_DAY: 'SPECIFIC_MONTH_DAY',
+  FIRST_BUSINESS_DAY: 'FIRST_BUSINESS_DAY',
+  LAST_BUSINESS_DAY: 'LAST_BUSINESS_DAY',
+  CUSTOM_INTERVAL: 'CUSTOM_INTERVAL'
+} as const
+
+export type PeriodicityType = (typeof PeriodicityType)[keyof typeof PeriodicityType]
 
 
-// This file is empty because there are no enums in the schema.
-export {}
+export const NonexistentDayRule = {
+  PREVIOUS_DAY: 'PREVIOUS_DAY',
+  LAST_DAY_OF_MONTH: 'LAST_DAY_OF_MONTH',
+  NEXT_MONTH: 'NEXT_MONTH',
+  SKIP: 'SKIP'
+} as const
+
+export type NonexistentDayRule = (typeof NonexistentDayRule)[keyof typeof NonexistentDayRule]
+
+
+export const HolidayType = {
+  NATIONAL: 'NATIONAL',
+  STATE: 'STATE',
+  MUNICIPAL: 'MUNICIPAL',
+  INTERNAL: 'INTERNAL'
+} as const
+
+export type HolidayType = (typeof HolidayType)[keyof typeof HolidayType]
+
+
+export const TaskOccurrenceStatus = {
+  PENDING: 'PENDING',
+  IN_PROGRESS: 'IN_PROGRESS',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+} as const
+
+export type TaskOccurrenceStatus = (typeof TaskOccurrenceStatus)[keyof typeof TaskOccurrenceStatus]
+
+
+export const TaskOccurrenceResult = {
+  SUCCESS: 'SUCCESS',
+  ERROR: 'ERROR',
+  PARTIAL: 'PARTIAL'
+} as const
+
+export type TaskOccurrenceResult = (typeof TaskOccurrenceResult)[keyof typeof TaskOccurrenceResult]

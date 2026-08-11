@@ -201,6 +201,145 @@ export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
 }
 
+export type EnumPeriodicityTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PeriodicityType | Prisma.EnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPeriodicityTypeFilter<$PrismaModel> | $Enums.PeriodicityType
+}
+
+export type IntFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntFilter<$PrismaModel> | number
+}
+
+export type IntNullableFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntNullableFilter<$PrismaModel> | number | null
+}
+
+export type EnumNonexistentDayRuleFilter<$PrismaModel = never> = {
+  equals?: $Enums.NonexistentDayRule | Prisma.EnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  in?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumNonexistentDayRuleFilter<$PrismaModel> | $Enums.NonexistentDayRule
+}
+
+export type EnumPeriodicityTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PeriodicityType | Prisma.EnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPeriodicityTypeWithAggregatesFilter<$PrismaModel> | $Enums.PeriodicityType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPeriodicityTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPeriodicityTypeFilter<$PrismaModel>
+}
+
+export type IntWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntWithAggregatesFilter<$PrismaModel> | number
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatFilter<$PrismaModel>
+  _sum?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedIntFilter<$PrismaModel>
+  _max?: Prisma.NestedIntFilter<$PrismaModel>
+}
+
+export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
+}
+
+export type EnumNonexistentDayRuleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.NonexistentDayRule | Prisma.EnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  in?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumNonexistentDayRuleWithAggregatesFilter<$PrismaModel> | $Enums.NonexistentDayRule
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumNonexistentDayRuleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumNonexistentDayRuleFilter<$PrismaModel>
+}
+
+export type EnumHolidayTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.HolidayType | Prisma.EnumHolidayTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHolidayTypeFilter<$PrismaModel> | $Enums.HolidayType
+}
+
+export type EnumHolidayTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HolidayType | Prisma.EnumHolidayTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHolidayTypeWithAggregatesFilter<$PrismaModel> | $Enums.HolidayType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHolidayTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHolidayTypeFilter<$PrismaModel>
+}
+
+export type EnumTaskOccurrenceStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceStatus | Prisma.EnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTaskOccurrenceStatusFilter<$PrismaModel> | $Enums.TaskOccurrenceStatus
+}
+
+export type EnumTaskOccurrenceResultNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceResult | Prisma.EnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  in?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumTaskOccurrenceResultNullableFilter<$PrismaModel> | $Enums.TaskOccurrenceResult | null
+}
+
+export type EnumTaskOccurrenceStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceStatus | Prisma.EnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTaskOccurrenceStatusWithAggregatesFilter<$PrismaModel> | $Enums.TaskOccurrenceStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTaskOccurrenceStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTaskOccurrenceStatusFilter<$PrismaModel>
+}
+
+export type EnumTaskOccurrenceResultNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceResult | Prisma.EnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  in?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumTaskOccurrenceResultNullableWithAggregatesFilter<$PrismaModel> | $Enums.TaskOccurrenceResult | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTaskOccurrenceResultNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTaskOccurrenceResultNullableFilter<$PrismaModel>
+}
+
 export type NestedUuidFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[] | Prisma.ListStringFieldRefInput<$PrismaModel>
@@ -396,6 +535,145 @@ export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
   _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
   _min?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
   _max?: Prisma.NestedDateTimeNullableFilter<$PrismaModel>
+}
+
+export type NestedEnumPeriodicityTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.PeriodicityType | Prisma.EnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPeriodicityTypeFilter<$PrismaModel> | $Enums.PeriodicityType
+}
+
+export type NestedEnumNonexistentDayRuleFilter<$PrismaModel = never> = {
+  equals?: $Enums.NonexistentDayRule | Prisma.EnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  in?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumNonexistentDayRuleFilter<$PrismaModel> | $Enums.NonexistentDayRule
+}
+
+export type NestedEnumPeriodicityTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.PeriodicityType | Prisma.EnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.PeriodicityType[] | Prisma.ListEnumPeriodicityTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumPeriodicityTypeWithAggregatesFilter<$PrismaModel> | $Enums.PeriodicityType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumPeriodicityTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumPeriodicityTypeFilter<$PrismaModel>
+}
+
+export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel>
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntWithAggregatesFilter<$PrismaModel> | number
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatFilter<$PrismaModel>
+  _sum?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedIntFilter<$PrismaModel>
+  _max?: Prisma.NestedIntFilter<$PrismaModel>
+}
+
+export type NestedFloatFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  in?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel>
+  notIn?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel>
+  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedFloatFilter<$PrismaModel> | number
+}
+
+export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.IntFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListIntFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _avg?: Prisma.NestedFloatNullableFilter<$PrismaModel>
+  _sum?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedIntNullableFilter<$PrismaModel>
+}
+
+export type NestedFloatNullableFilter<$PrismaModel = never> = {
+  equals?: number | Prisma.FloatFieldRefInput<$PrismaModel> | null
+  in?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  notIn?: number[] | Prisma.ListFloatFieldRefInput<$PrismaModel> | null
+  lt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  lte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedFloatNullableFilter<$PrismaModel> | number | null
+}
+
+export type NestedEnumNonexistentDayRuleWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.NonexistentDayRule | Prisma.EnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  in?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  notIn?: $Enums.NonexistentDayRule[] | Prisma.ListEnumNonexistentDayRuleFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumNonexistentDayRuleWithAggregatesFilter<$PrismaModel> | $Enums.NonexistentDayRule
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumNonexistentDayRuleFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumNonexistentDayRuleFilter<$PrismaModel>
+}
+
+export type NestedEnumHolidayTypeFilter<$PrismaModel = never> = {
+  equals?: $Enums.HolidayType | Prisma.EnumHolidayTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHolidayTypeFilter<$PrismaModel> | $Enums.HolidayType
+}
+
+export type NestedEnumHolidayTypeWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.HolidayType | Prisma.EnumHolidayTypeFieldRefInput<$PrismaModel>
+  in?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  notIn?: $Enums.HolidayType[] | Prisma.ListEnumHolidayTypeFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumHolidayTypeWithAggregatesFilter<$PrismaModel> | $Enums.HolidayType
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumHolidayTypeFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumHolidayTypeFilter<$PrismaModel>
+}
+
+export type NestedEnumTaskOccurrenceStatusFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceStatus | Prisma.EnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTaskOccurrenceStatusFilter<$PrismaModel> | $Enums.TaskOccurrenceStatus
+}
+
+export type NestedEnumTaskOccurrenceResultNullableFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceResult | Prisma.EnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  in?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumTaskOccurrenceResultNullableFilter<$PrismaModel> | $Enums.TaskOccurrenceResult | null
+}
+
+export type NestedEnumTaskOccurrenceStatusWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceStatus | Prisma.EnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  in?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  notIn?: $Enums.TaskOccurrenceStatus[] | Prisma.ListEnumTaskOccurrenceStatusFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumTaskOccurrenceStatusWithAggregatesFilter<$PrismaModel> | $Enums.TaskOccurrenceStatus
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTaskOccurrenceStatusFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTaskOccurrenceStatusFilter<$PrismaModel>
+}
+
+export type NestedEnumTaskOccurrenceResultNullableWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.TaskOccurrenceResult | Prisma.EnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  in?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  notIn?: $Enums.TaskOccurrenceResult[] | Prisma.ListEnumTaskOccurrenceResultFieldRefInput<$PrismaModel> | null
+  not?: Prisma.NestedEnumTaskOccurrenceResultNullableWithAggregatesFilter<$PrismaModel> | $Enums.TaskOccurrenceResult | null
+  _count?: Prisma.NestedIntNullableFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumTaskOccurrenceResultNullableFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumTaskOccurrenceResultNullableFilter<$PrismaModel>
 }
 
 
