@@ -61,12 +61,38 @@ services:
       retries: 5
       start_period: 5s
 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: taskplan-pgadmin
+    restart: unless-stopped
+
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+      TZ: America/Sao_Paulo
+
+    ports:
+      - "${PGADMIN_PORT}:80"
+
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+    networks:
+      - taskplan-network
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   postgres_data:
     name: taskplan-postgres-data
 
   redis_data:
     name: taskplan-redis-data
+
+  pgadmin_data:
+    name: taskplan-pgadmin-data
 
 networks:
   taskplan-network:
