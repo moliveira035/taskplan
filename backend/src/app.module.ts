@@ -13,7 +13,8 @@ import { FunctionsModule } from './modules/functions/functions.module';
 import { PeriodicitiesModule } from './modules/periodicities/periodicities.module';
 import { HolidaysModule } from './modules/holidays/holidays.module';
 import { TasksModule } from './modules/tasks/tasks.module';
-
+import { TaskOccurrencesModule } from './modules/task-occurrences/task-occurrences.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -31,6 +32,8 @@ import { TasksModule } from './modules/tasks/tasks.module';
     PeriodicitiesModule,
     HolidaysModule,
     TasksModule,
+    TaskOccurrencesModule,
+    DashboardModule,
   ],
   controllers: [AppController],
   providers: [AppService],
